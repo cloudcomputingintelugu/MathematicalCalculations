@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Operations</h1>
+
+    <!-- Add -->
+    <form action="/ccitwebsite/math/add" method="get">
+        <h3>Addition</h3>
+        <input type="number" name="a" placeholder="Enter first number" required>
+        <input type="number" name="b" placeholder="Enter second number" required>
+        <br>
+        <button type="submit">Add</button>
+    </form>
+
+    <!-- Subtract -->
+    <form action="/ccitwebsite/math/subtract" method="get">
+        <h3>Subtraction</h3>
+        <input type="number" name="a" placeholder="Enter first number" required>
+        <input type="number" name="b" placeholder="Enter second number" required>
+        <br>
+        <button type="submit">Subtract</button>
+    </form>
+
+    <!-- Multiply -->
+    <form action="/ccitwebsite/math/multiply" method="get">
+        <h3>Multiplication</h3>
+        <input type="number" name="a" placeholder="Enter first number" required>
+        <input type="number" name="b" placeholder="Enter second number" required>
+        <br>
+        <button type="submit">Multiply</button>
+    </form>
+
+    <!-- Divide -->
+    <form action="/ccitwebsite/math/divide" method="get">
+        <h3>Division</h3>
+        <input type="number" name="a" placeholder="Enter first number" required>
+        <input type="number" name="b" placeholder="Enter second number" required>
+        <br>
+        <button type="submit">Divide</button>
+    </form>
+</body>
+</html>
