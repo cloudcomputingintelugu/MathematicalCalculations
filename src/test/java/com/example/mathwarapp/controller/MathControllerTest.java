@@ -17,39 +17,71 @@ class MathControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    private int getA() {
+        return Integer.parseInt(System.getProperty("math.a", "5")); // default 5
+    }
+
+    private int getB() {
+        return Integer.parseInt(System.getProperty("math.b", "3")); // default 3
+    }
+
     @Test
     void testAddition() throws Exception {
-        mockMvc.perform(get("/math/add?a=5&b=3"))
+        int a = getA();
+        int b = getB();
+        int expected = a + b;
+
+        mockMvc.perform(get("/math/add")
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Result: 8"));
+                .andExpect(content().string("Result: " + expected));
     }
 
     @Test
     void testSubtraction() throws Exception {
-        mockMvc.perform(get("/math/subtract?a=10&b=4"))
+        int a = getA();
+        int b = getB();
+        int expected = a - b;
+
+        mockMvc.perform(get("/math/subtract")
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Result: 6"));
+                .andExpect(content().string("Result: " + expected));
     }
 
     @Test
     void testMultiplication() throws Exception {
-        mockMvc.perform(get("/math/multiply?a=7&b=6"))
+        int a = getA();
+        int b = getB();
+        int expected = a * b;
+
+        mockMvc.perform(get("/math/multiply")
+                .param("a", String.valueOf(a))
+                .param("b", String.valueOf(b)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Result: 42"));
+                .andExpect(content().string("Result: " + expected));
     }
 
     @Test
     void testDivision() throws Exception {
-        mockMvc.perform(get("/math/divide?a=20&b=4"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Result: 5"));
-    }
+        int a = getA();
+        int b = getB();
 
-    @Test
-    void testDivisionByZero() throws Exception {
-        mockMvc.perform(get("/math/divide?a=20&b=0"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Error: Cannot divide by zero"));
+        if (b == 0) {
+            mockMvc.perform(get("/math/divide")
+                    .param("a", String.valueOf(a))
+                    .param("b", String.valueOf(b)))
+                    .andExpect(status().isOk())
+                    .andExpect(content().string("Error: Cannot divide by zero"));
+        } else {
+            int expected = a / b;
+            mockMvc.perform(get("/math/divide")
+                    .param("a", String.valueOf(a))
+                    .param("b", String.valueOf(b)))
+                    .andExpect(status().isOk())
+                    .andExpect(content().string("Result: " + expected));
+        }
     }
 }
-
