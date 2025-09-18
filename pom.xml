@@ -24,6 +24,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Exclude embedded Tomcat (use external Tomcat container instead) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Optional: JSP support -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
