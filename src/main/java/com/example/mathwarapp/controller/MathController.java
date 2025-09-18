@@ -8,7 +8,7 @@ public class MathController {
 
     @GetMapping("/add")
     public String add(@RequestParam int a, @RequestParam int b) {
-        return String.valueOf(a - b);
+        return String.valueOf(a + b);
     }
 
     @GetMapping("/subtract")
