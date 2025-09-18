@@ -31,20 +31,16 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Optional: JSP support -->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-
-        <!-- JSTL -->
+        <!-- JSTL API + Implementation (required for JSP pages in external Tomcat) -->
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
         </dependency>
 
         <!-- Testing -->
@@ -61,6 +57,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Prevent Spring Boot plugin from forcing JAR repackaging -->
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
