@@ -35,7 +35,7 @@ class MathControllerTest {
                 .param("a", String.valueOf(a))
                 .param("b", String.valueOf(b)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Result: " + expected));
+                .andExpect(content().string(String.valueOf(expected))); // <-- changed here
     }
 
     @Test
@@ -48,7 +48,7 @@ class MathControllerTest {
                 .param("a", String.valueOf(a))
                 .param("b", String.valueOf(b)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Result: " + expected));
+                .andExpect(content().string(String.valueOf(expected))); // <-- changed here
     }
 
     @Test
@@ -61,7 +61,7 @@ class MathControllerTest {
                 .param("a", String.valueOf(a))
                 .param("b", String.valueOf(b)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Result: " + expected));
+                .andExpect(content().string(String.valueOf(expected))); // <-- changed here
     }
 
     @Test
@@ -81,7 +81,7 @@ class MathControllerTest {
                     .param("a", String.valueOf(a))
                     .param("b", String.valueOf(b)))
                     .andExpect(status().isOk())
-                    .andExpect(content().string("Result: " + expected));
+                    .andExpect(content().string(String.valueOf(expected))); // <-- changed here
         }
     }
 }
