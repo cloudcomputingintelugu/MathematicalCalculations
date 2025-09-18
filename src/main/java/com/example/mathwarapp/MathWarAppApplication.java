@@ -14,7 +14,6 @@ public class MathWarAppApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        // Tell Spring Boot how to initialize when deployed as WAR
         return application.sources(MathWarAppApplication.class);
     }
 }
